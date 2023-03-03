@@ -1,17 +1,27 @@
+import React, {Component} from 'react'
+
+
+
+
 const ParaComponent = () => {
-    const name = 'Giuseppe'
+    
     return (
-        <h1>{name}</h1>
+        <h1>This should be name</h1>
     )
 }
-const MainContent = () => {
-    return (
-        <div className="main-container">
-            <ParaComponent/>
-            <h1>This is my very first React Project</h1>
-            <p>learning to create and render multiple components</p>
-        </div>
-        
-    )
+class MainContent extends Component {
+    constructor() {
+        super()
+    }
+    render(){
+        return (
+            <div className="main-container">
+                <ParaComponent/>
+                <h1>This is my very first React Project</h1>
+                <p>learning to create and render multiple components</p>
+            </div>
+            
+        )
+    }
 }
 export {MainContent}
