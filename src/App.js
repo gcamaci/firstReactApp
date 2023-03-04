@@ -15,6 +15,7 @@ class App extends Component {
     }
     this.onTaskChange = this.onTaskChange.bind(this)
     this.pushTasks = this.pushTasks.bind(this)
+    this.deleteTask = this.deleteTask.bind(this)
   }
   
   onTaskChange(e){
@@ -36,6 +37,15 @@ class App extends Component {
     })
   }
 
+  deleteTask(e){
+    const code = parseInt(e.target.id)
+    this.setState(prevState => {
+      return {
+        tasks: prevState.tasks.filter((task) => task.taskId !== code),
+      }
+    })
+  }
+
   render(){
     const {task,tasks} = this.state
 
@@ -51,7 +61,7 @@ class App extends Component {
           />
           <button type='submit'>submit</button>
         </form>
-        <Overview tasks={tasks}/>
+        <Overview tasks={tasks} taskDelete={this.deleteTask}/>
 
         
       </div>
